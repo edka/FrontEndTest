@@ -1,0 +1,21 @@
+<form action="/" name="form" novalidate class="col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-submit="form.$valid && send($event) && form.$setPristine()">
+    <h1 class="text-center text-muted">TLS Clarity Registration</h1>
+    <div class="form-group" ng-class="{'has-error': form.company.$invalid && !form.company.$pristine }">
+        <label ng-hide="form.company.$invalid && !form.company.$pristine">Company name</label>
+        <label class="control-label" ng-show="form.company.$invalid && !form.company.$pristine">Please enter correct company name</label>
+        <input type="text" ng-minlength="5" name="company" ng-required="true" class="form-control" placeholder="Your company name" ng-model="userdata.company" />
+    </div>
+    <div class="form-group" ng-class="{'has-error': form.username.$invalid && !form.username.$pristine }">
+        <label ng-hide="form.username.$invalid && !form.username.$pristine">Name</label>
+        <label class="control-label" ng-show="form.username.$invalid && !form.username.$pristine">Please enter correct username</label>
+        <input type="text" ng-minlength="5" name="username" ng-required="true" class="form-control" placeholder="Full name" ng-model="userdata.username" />
+    </div>
+    <div class="form-group" ng-class="{'has-error': form.email.$invalid && !form.email.$pristine }">
+        <label ng-hide="form.email.$invalid && !form.email.$pristine">Email</label>
+        <label class="control-label" ng-show="form.email.$invalid && !form.email.$pristine">Please enter correct email</label>
+        <input type="email" name="email" ng-required="true" class="form-control" placeholder="Your Email" ng-model="userdata.email" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Sign Up" class="btn btn-success col-xs-12" />
+    </div>
+</form>

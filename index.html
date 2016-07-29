@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+    <meta name="format-detection" content="telephone-no" />
+    <title>Transperfect Legal Solutions</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-controller="appCtrl">
+
+<header class="container-fluid header">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <a ui-sref="home" class="logo pull-left">
+                    <img class="img-responsive" src="img/logo.jpg" alt="Transperfect" />
+                </a>
+                <div class="pull-right">
+                    <ul class="nav nav-pills">
+                        <li><a ui-sref="home">Short</a></li>
+                        <li><a ui-sref="registration">Full</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container content">
+    <div class="row" ui-view></div>
+</main>
+
+<script src="js/vendor.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.logo {
+  width: 300px;
+}
+
+.header {
+  background: linear-gradient(to bottom right, #2A3A6B, #0D1D50, #010A27);
+  .nav {
+    margin-top: 20px;
+  }
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.content {
+  margin-top: 40px;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+.ng-dirty {
+  &.ng-invalid {
+    border-color: red;
+  }
+  &.ng-valid {
+    border-color: green;
+  }
+}
+
+.ui-select-container {
+  &.ng-invalid {
+    &.ng-touched {
+      .btn {
+        border-color: red;
+      }
+    }
+  }
+}

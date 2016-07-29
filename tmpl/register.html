@@ -1,0 +1,98 @@
+<form action="/" name="form" novalidate class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2" ng-submit="form.$valid && send($event) && form.$setPristine()">
+    <h1 class="text-center text-muted">TLS Clarity Registration</h1>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-6" ng-class="{'has-error': form.company.$invalid && !form.company.$pristine }">
+            <label ng-hide="form.company.$invalid && !form.company.$pristine">Company name</label>
+            <label class="control-label" ng-show="form.company.$invalid && !form.company.$pristine">Please enter correct company name</label>
+            <input type="text" ng-minlength="3" name="company" ng-required="true" class="col-xs-12 form-control" placeholder="Your company name" ng-model="userdata.company" />
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.title.$invalid && !form.title.$pristine }">
+            <label ng-hide="form.title.$invalid && !form.title.$pristine">Company title</label>
+            <label class="control-label" ng-show="form.title.$invalid && !form.title.$pristine">Please enter correct title</label>
+            <input type="text" ng-minlength="3" name="title" ng-required="true" class="col-xs-12 form-control" placeholder="Title" ng-model="userdata.title" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-6" ng-class="{'has-error': form.firstname.$invalid && !form.firstname.$pristine }">
+            <label ng-hide="form.firstname.$invalid && !form.firstname.$pristine">Firstname</label>
+            <label class="control-label" ng-show="form.firstname.$invalid && !form.firstname.$pristine">Please enter correct firstname</label>
+            <input type="text" ng-minlength="3" ng-required="true" class="col-xs-12 form-control" placeholder="Firstname" ng-model="userdata.firstname" name="firstname" />
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.lastname.$invalid && !form.lastname.$pristine }">
+            <label ng-hide="form.lastname.$invalid && !form.lastname.$pristine">Lastname</label>
+            <label class="control-label" ng-show="form.lastname.$invalid && !form.lastname.$pristine">Please enter correct lastname</label>
+            <input type="text" ng-minlength="3" ng-required="true" class="col-xs-12 form-control" placeholder="Lastname" ng-model="userdata.lastname" name="lastname" />
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error': form.email.$invalid && !form.email.$pristine }">
+        <div class="col-xs-12 col-md-6">
+            <label ng-hide="form.email.$invalid && !form.email.$pristine">Email</label>
+            <label class="control-label" ng-show="form.email.$invalid && !form.email.$pristine">Please enter correct email</label>
+            <input type="email" name="email" ng-required="true" class="col-xs-12 form-control" placeholder="Work email" ng-model="userdata.email" />
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.tel.$invalid && !form.tel.$pristine }">
+            <label ng-hide="form.tel.$invalid && !form.tel.$pristine">Phone</label>
+            <label class="control-label" ng-show="form.tel.$invalid && !form.tel.$pristine">Please enter correct phone number</label>
+            <input type="tel" name="tel" ng-required="true" ng-pattern="/^[0-9]+$/" class="col-xs-12 form-control" placeholder="Work phone (digits only)" ng-model="userdata.tel" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12" ng-class="{'has-error': form.address.$invalid && !form.address.$pristine }">
+            <label ng-hide="form.address.$invalid && !form.address.$pristine">Address</label>
+            <label class="control-label" ng-show="form.address.$invalid && !form.address.$pristine">Please enter correct address</label>
+            <input type="text" name="address" ng-minlength="10" ng-required="true" class="col-xs-12 form-control" placeholder="Street address" ng-model="userdata.address" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-6">
+            <label>State</label>
+            <ui-select ng-model="userdata.state" ng-required="true">
+                <ui-select-match placeholder="Choose state">{{$select.selected}}</ui-select-match>
+                <ui-select-choices repeat="state in states">
+                    <span ng-bind-html="state"></span>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.city.$invalid && !form.city.$pristine }">
+            <label ng-hide="form.city.$invalid && !form.city.$pristine">City</label>
+            <label class="control-label" ng-show="form.city.$invalid && !form.city.$pristine">Please enter correct city</label>
+            <input type="text" ng-minlength="1" ng-required="true" class="col-xs-12 form-control" placeholder="City" name="city" ng-model="userdata.city" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-xs-offset-0 col-md-2 col-md-offset-10" ng-class="{'has-error': form.zipcode.$invalid && !form.zipcode.$pristine }">
+            <label ng-hide="form.zipcode.$invalid && !form.zipcode.$pristine">Zipcode</label>
+            <label class="control-label" ng-show="form.zipcode.$invalid && !form.zipcode.$pristine">5 digits only</label>
+            <input type="text" ng-required="true" ng-pattern="/^[0-9]{5}$/" class="col-xs-12 form-control" placeholder="Zipcode" ng-model="userdata.zipcode" name="zipcode" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-6" ng-class="{'has-error': form.password.$invalid && !form.password.$pristine }">
+            <label ng-hide="form.password.$invalid && !form.password.$pristine">Password</label>
+            <label class="control-label" ng-show="form.password.$invalid && !form.password.$pristine">At least 6 symbols</label>
+            <input type="password" ng-required="true" ng-minlength="6" class="col-xs-12 form-control" placeholder="Choose password" ng-model="userdata.password" name="password" />
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.manager.$invalid && !form.manager.$pristine }">
+            <label ng-hide="form.manager.$invalid && !form.manager.$pristine">Manager</label>
+            <label class="control-label" ng-show="form.manager.$invalid && !form.manager.$pristine">Please enter correct name</label>
+            <input type="text" ng-required="true" class="col-xs-12 form-control" placeholder="Manager name" ng-model="userdata.manager" name="manager" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-6" ng-class="{'has-error': form.password.$invalid && !form.password.$pristine }">
+            <label ng-hide="form.password.$invalid && !form.password.$pristine">Confirm password</label>
+            <label class="control-label" ng-show="form.password.$invalid && !form.password.$pristine">At least 6 numbers too</label>
+            <input type="password" ng-required="true" ng-minlength="6" class="col-xs-12 form-control" placeholder="Confirm password" ng-model="userdata.password" name="confirmpassword" />
+        </div>
+        <div class="col-xs-12 col-xs-offset-0 col-md-5 col-md-offset-1" ng-class="{'has-error': form.managerdata.$invalid && !form.managerdata.$pristine }">
+            <label ng-hide="form.managerdata.$invalid && !form.managerdata.$pristine">Manager data</label>
+            <label class="control-label" ng-show="form.managerdata.$invalid && !form.managerdata.$pristine">Please enter data</label>
+            <input type="text" ng-required="true" class="col-xs-12 form-control" placeholder="Manager email/phone" ng-model="userdata.managerdata" name="managerdata" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12">
+            <input type="submit" value="Complete registration" class="btn btn-success col-xs-12" />
+        </div>
+    </div>
+</form>
